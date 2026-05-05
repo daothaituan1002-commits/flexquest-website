@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FlexQuest | ICover</title>
+  <title>ICover | Smart Recovery Wrap</title>
 
   <style>
     * {
@@ -15,24 +15,24 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #f5f8ff;
+      background: #f4f8ff;
       color: #10233f;
     }
 
     nav {
-      background: #061b3a;
-      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #071b3d;
       padding: 18px 8%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      color: white;
     }
 
     nav h2 {
-      color: #6ce5ff;
+      color: #4fdcff;
     }
 
     nav a {
@@ -72,42 +72,34 @@
 
     .btn {
       display: inline-block;
-      background: #36c9ff;
-      color: #061b3a;
+      background: #4fdcff;
+      color: #071b3d;
       padding: 14px 28px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.3s;
     }
 
-    .hero-card {
+    .btn:hover {
+      transform: translateY(-4px);
+      background: white;
+    }
+
+    .hero-img {
       flex: 1;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.35);
-      border-radius: 28px;
-      padding: 35px;
       text-align: center;
     }
 
-    .wrap-demo {
-      width: 260px;
-      height: 260px;
-      margin: auto;
-      border-radius: 50%;
-      border: 18px solid #071b3d;
-      background: radial-gradient(circle, #6ce5ff, #1d5fa8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 0 35px rgba(108,229,255,0.45);
+    .hero-img img {
+      max-width: 100%;
+      border-radius: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+      transition: 0.3s;
     }
 
-    .wrap-demo span {
-      background: white;
-      color: #061b3a;
-      padding: 15px 22px;
-      border-radius: 30px;
-      font-weight: bold;
+    .hero-img img:hover {
+      transform: scale(1.03);
     }
 
     section {
@@ -121,7 +113,7 @@
 
     .section-title h2 {
       font-size: 38px;
-      color: #061b3a;
+      color: #071b3d;
       margin-bottom: 12px;
     }
 
@@ -141,12 +133,18 @@
       padding: 28px;
       border-radius: 22px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      border-top: 5px solid #36c9ff;
+      border-top: 5px solid #4fdcff;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
     }
 
     .card h3 {
       margin-bottom: 12px;
-      color: #061b3a;
+      color: #071b3d;
     }
 
     .card p, .card li {
@@ -155,7 +153,7 @@
     }
 
     .dark {
-      background: #061b3a;
+      background: #071b3d;
       color: white;
     }
 
@@ -172,8 +170,8 @@
 
     .dark .card {
       background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(108,229,255,0.45);
-      border-top: 5px solid #36c9ff;
+      border: 1px solid rgba(79,220,255,0.45);
+      border-top: 5px solid #4fdcff;
     }
 
     .app-preview {
@@ -184,18 +182,23 @@
     }
 
     .phone {
-      width: 210px;
+      width: 220px;
       height: 400px;
       background: #071b3d;
-      border: 3px solid #36c9ff;
+      border: 3px solid #4fdcff;
       border-radius: 32px;
       padding: 22px;
       color: white;
-      box-shadow: 0 0 25px rgba(54,201,255,0.25);
+      box-shadow: 0 0 25px rgba(79,220,255,0.25);
+      transition: 0.3s;
+    }
+
+    .phone:hover {
+      transform: translateY(-8px);
     }
 
     .phone h3 {
-      color: #6ce5ff;
+      color: #4fdcff;
       margin-bottom: 20px;
     }
 
@@ -207,10 +210,20 @@
       font-size: 14px;
     }
 
-    .comparison {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+    .cta {
+      text-align: center;
+      background: linear-gradient(135deg, #1d5fa8, #071b3d);
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: #d9ecff;
+      margin-bottom: 30px;
     }
 
     footer {
@@ -220,7 +233,7 @@
       color: #cbd5e1;
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
       header {
         flex-direction: column;
         text-align: center;
@@ -247,11 +260,10 @@
   <nav>
     <h2>FlexQuest</h2>
     <div>
-      <a href="#product">Product</a>
+      <a href="#overview">Overview</a>
       <a href="#features">Features</a>
       <a href="#app">App</a>
       <a href="#specs">Specs</a>
-      <a href="#why">Why ICover</a>
     </div>
   </nav>
 
@@ -259,80 +271,75 @@
     <div class="hero-text">
       <h1>ICover Smart Recovery Wrap</h1>
       <p>
-        ICover is a wearable recovery wrap for knees, arms, shoulders, and legs.
-        It combines heat therapy, cold therapy, massage, smart sensors, and app tracking
-        in one portable device.
+        ICover is a smart knee recovery wrap that helps users manage soreness,
+        swelling, stiffness, and recovery routines through heat, cool, massage,
+        and app-connected tracking.
       </p>
-      <a href="#product" class="btn">Explore ICover</a>
+      <a href="#features" class="btn">View Features</a>
     </div>
 
-    <div class="hero-card">
-      <div class="wrap-demo">
-        <span>ICover Wrap</span>
-      </div>
-      <p style="margin-top:20px;">
-        Smart recovery support for athletes, injured patients, therapy users, and rehab centers.
-      </p>
+    <div class="hero-img">
+      <img src="icover.png" alt="ICover Smart Recovery Wrap">
     </div>
   </header>
 
-  <section id="product">
+  <section id="overview">
     <div class="section-title">
-      <h2>Our Product</h2>
+      <h2>Product Overview</h2>
       <p>Smart recovery support in one adjustable wrap</p>
     </div>
 
     <div class="grid">
       <div class="card">
-        <h3>Wearable Design</h3>
-        <p>ICover is designed to fit around recovery areas like the knee, arm, shoulder, or leg.</p>
+        <h3>Smart Recovery Wrap</h3>
+        <p>ICover combines therapy support and smart tracking in one wearable device.</p>
       </div>
 
       <div class="card">
-        <h3>Portable Recovery</h3>
-        <p>Users can recover at home, after practice, or during physical therapy routines.</p>
+        <h3>Portable & Adjustable</h3>
+        <p>Designed for the knee, leg, arm, or other recovery areas.</p>
       </div>
 
       <div class="card">
-        <h3>All-in-One Tool</h3>
-        <p>It replaces separate ice packs, heating pads, and massage tools with one device.</p>
+        <h3>For Recovery Users</h3>
+        <p>Made for athletes, injured patients, therapy users, and rehab centers.</p>
       </div>
     </div>
   </section>
 
   <section id="features" class="dark">
     <div class="section-title">
-      <h2>Core Features</h2>
-      <p>Multiple recovery tools built into one smart wrap</p>
+      <h2>Control Panel Features</h2>
+      <p>Easy controls for different recovery needs</p>
     </div>
 
     <div class="grid">
       <div class="card">
-        <h3>Heat Therapy</h3>
-        <p>Supports muscle relaxation and helps reduce stiffness.</p>
+        <h3>Heat Mode</h3>
+        <p>Relieves tightness and improves circulation.</p>
       </div>
 
       <div class="card">
-        <h3>Cold Therapy</h3>
-        <p>Helps reduce swelling, pain, and discomfort after activity.</p>
+        <h3>Cool Mode</h3>
+        <p>Reduces inflammation and supports muscle recovery.</p>
       </div>
 
       <div class="card">
-        <h3>Massage Mode</h3>
-        <p>Provides comfort and circulation support during recovery.</p>
+        <h3>Compression Levels</h3>
+        <p>Three adjustable levels help reduce muscle stiffness.</p>
       </div>
 
       <div class="card">
-        <h3>Smart Sensors</h3>
-        <p>Monitor temperature and usage time for safer recovery sessions.</p>
+        <h3>Battery Indicator</h3>
+        <p>Shows real-time battery status during use.</p>
       </div>
     </div>
   </section>
 
   <section id="app">
     <div class="section-title">
-      <h2>Our App</h2>
-      <p>Track and control recovery from your phone</p>
+      <h2>ICover App</h2>
+      <p>Control and track recovery from your phone</p>
     </div>
 
     <div class="app-preview">
@@ -340,15 +347,15 @@
         <h3>Recovery Plan</h3>
         <div class="phone-box">Knee Recovery</div>
         <div class="phone-box">Heat Mode</div>
-        <div class="phone-box">Cold Mode</div>
+        <div class="phone-box">Cool Mode</div>
         <div class="phone-box">Massage Mode</div>
       </div>
 
       <div class="phone">
         <h3>Active Session</h3>
         <div class="phone-box">Timer: 18:24</div>
-        <div class="phone-box">Temperature: Safe</div>
-        <div class="phone-box">Mode: Massage</div>
+        <div class="phone-box">Temperature: 30°C</div>
+        <div class="phone-box">Mode: Recovery</div>
         <div class="phone-box">Battery: 82%</div>
       </div>
 
@@ -365,61 +372,46 @@
   <section id="specs" class="dark">
     <div class="section-title">
       <h2>Product Specifications</h2>
-      <p>Designed for comfort, safety, and repeated use</p>
+      <p>Comfortable, adjustable, and technology-ready</p>
     </div>
 
     <div class="grid">
       <div class="card">
+        <h3>Total Width</h3>
+        <p>30 centimeters</p>
+      </div>
+
+      <div class="card">
+        <h3>Total Length</h3>
+        <p>74 centimeters</p>
+      </div>
+
+      <div class="card">
         <h3>Material</h3>
-        <p>Soft inner lining with breathable outer fabric.</p>
-      </div>
-
-      <div class="card">
-        <h3>Adjustable Fit</h3>
-        <p>Straps allow the wrap to fit different recovery areas.</p>
-      </div>
-
-      <div class="card">
-        <h3>Battery</h3>
-        <p>Rechargeable battery pack for portable use.</p>
+        <p>Soft inner lining and breathable outer fabric.</p>
       </div>
 
       <div class="card">
         <h3>Connection</h3>
-        <p>Bluetooth control chip connects the wrap to the app.</p>
+        <p>Bluetooth app control with smart recovery tracking.</p>
+      </div>
+
+      <div class="card">
+        <h3>Battery</h3>
+        <p>Rechargeable battery for portable recovery use.</p>
+      </div>
+
+      <div class="card">
+        <h3>Fit</h3>
+        <p>Adjustable straps for different body areas.</p>
       </div>
     </div>
   </section>
 
-  <section id="why">
-    <div class="section-title">
-      <h2>Why ICover?</h2>
-      <p>Smarter than traditional recovery tools</p>
-    </div>
-
-    <div class="comparison">
-      <div class="card">
-        <h3>Traditional Tools</h3>
-        <ul>
-          <li>Ice packs only provide cold therapy</li>
-          <li>Heating pads only provide heat therapy</li>
-          <li>Massage tools are usually separate</li>
-          <li>No smart tracking</li>
-          <li>Less personalized recovery</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h3>ICover</h3>
-        <ul>
-          <li>Heat, cold, and massage in one wrap</li>
-          <li>Smart temperature monitoring</li>
-          <li>App-connected recovery tracking</li>
-          <li>Portable and adjustable design</li>
-          <li>More personalized recovery routines</li>
-        </ul>
-      </div>
-    </div>
+  <section class="cta">
+    <h2>Recover Smarter with ICover</h2>
+    <p>A modern recovery wrap designed for comfort, control, and better recovery routines.</p>
+    <a href="#app" class="btn">Start Demo</a>
   </section>
 
   <footer>
